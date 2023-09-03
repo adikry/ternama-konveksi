@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PortofolioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'home');
+    Route::get('/about-us', 'about');
+    Route::get('/contact', 'contact');
+    Route::post('/submit', 'submit')->name('submit.form');
+});
+
+Route::controller(PortofolioController::class)->group(function () {
+    Route::get('/portofolio/{kategori:slug}', 'porto');
+});
+
+Route::controller(BlogController::class)->group(function () {
+    Route::get('/blog', 'blog');
+    Route::get('/blog/{blog:slug}', 'detail');
 });
