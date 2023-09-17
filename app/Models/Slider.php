@@ -16,10 +16,6 @@ class Slider extends Model
 
     protected $table = 'slider';
 
-    protected $casts = [
-        'thumbnail' => 'array'
-    ];
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');

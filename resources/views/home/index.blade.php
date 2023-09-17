@@ -1,6 +1,5 @@
 @extends('layouts.frontend.main')
 
-
 @push('css')
     <link rel="stylesheet" href="/assets/vendors/sweetalert2/sweetalert2.css">
 @endpush
@@ -21,7 +20,8 @@
                                     <h2 class="mb-6 fs-38 fs-xl-60 lh-1 text-white" data-animate="fadeInUp">
                                         {!! $slider->desc !!}
                                     </h2>
-                                    <a href="#" class="btn btn-white rounded-lg text-uppercase letter-spacing-05"
+                                    <a href="https://wa.me/+6281111120293?text=Haloadmin"
+                                        class="btn btn-white rounded-lg text-uppercase letter-spacing-05"
                                         data-animate="fadeInUp">Hubungi Kami</a>
                                 </div>
                             </div>
@@ -321,7 +321,7 @@
 
     <section class="py-12 pt-lg-15 bg-main">
         <div class="container container-xxl">
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center" data-animate="fadeInLeft">
                 <div class="mb-0">
                     <h2 class="fs-30 fs-md-40 text-white">Artikel Kami</h2>
                     <p class="font-weight-500 text-gray-03">
@@ -339,7 +339,7 @@
                     data-slick-options='{"slidesToShow": 3,"infinite":true,"autoplay":false,"dots":false,"arrows":false,"responsive":[{"breakpoint": 992,"settings": {"slidesToShow":2}},{"breakpoint": 576,"settings": {"slidesToShow":1}}]}'>
                     @foreach ($blogs as $blog)
                         <div class="box">
-                            <div class="card bg-transparent hover-zoom-in border-0 article">
+                            <div class="card bg-transparent hover-zoom-in border-0 article" data-animate="fadeInRight">
                                 <a href="#" class="hover-shine card-img-top rounded">
                                     <div class="img-card-custom">
                                         <img src="{{ asset('storage/' . $blog->thumbnail) }}"

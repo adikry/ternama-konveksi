@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Kategori;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
@@ -23,5 +24,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $kategories = Kategori::all();
         View::share('kategories', $kategories);
+
+        Paginator::defaultView('pagination::custom');
     }
 }

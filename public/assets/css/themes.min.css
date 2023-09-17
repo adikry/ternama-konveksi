@@ -5294,14 +5294,14 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
     z-index: 3;
     color: #000;
-    background-color: transparent;
+    border-radius: 0.25rem !important;
+    background-color: #fff;
     border-color: transparent;
 }
 .page-item.disabled .page-link {
     color: #6c757d;
     pointer-events: none;
     cursor: auto;
-    background-color: #fff;
     border-color: #dee2e6;
 }
 .pagination-lg .page-link {
@@ -20990,6 +20990,17 @@ button:focus {
     width: 0;
     border: 7px solid transparent;
     border-right: 7px solid #353333;
+}
+.section-links {
+    min-height: 100dvh;
+}
+img.img-links {
+    width: 50% !important;
+}
+@media (min-width: 576px) {
+    img.img-links {
+        width: 75% !important;
+    }
 }
 @media only screen and (min-width: 768px) {
     .cd-timeline-content h2 {

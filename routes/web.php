@@ -22,6 +22,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/about-us', 'about');
     Route::get('/contact', 'contact');
     Route::post('/submit', 'submit')->name('submit.form');
+    Route::get('/landing-page', 'landing');
+    Route::get('/links', 'links');
 });
 
 Route::controller(PortofolioController::class)->group(function () {

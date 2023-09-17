@@ -17,8 +17,8 @@ class BlogController extends Controller
             ->where('isActive', '=', 1)
             ->where('published_at', '!=', null)
             ->orderBy('published_at', 'desc')
-            ->limit(5)
-            ->get();
+            ->paginate(5)
+            ->withQueryString();
 
         $display = Display::query()
             ->where('konten', '=', 'Blog')

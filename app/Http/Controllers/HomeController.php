@@ -7,6 +7,8 @@ use App\Models\Client;
 use App\Models\Display;
 use App\Models\Kategori;
 use App\Models\Kontak;
+use App\Models\LandingPage;
+use App\Models\Link;
 use App\Models\Service;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -71,5 +73,25 @@ class HomeController extends Controller
         Kontak::create($validatedData);
 
         return response()->json(['success' => true, 'message' => 'Form submitted successfully']);
+    }
+
+    public function landing(): View
+    {
+
+        $dataLanding = LandingPage::query()
+            ->where('isActive', '=', 1)
+            ->limit(1)
+            ->first();
+
+        $services = Service::all();
+
+        return view('home.landing', compact('dataLanding', 'services'));
+    }
+
+    public function links(): View
+    {
+        $links = Link::all();
+
+        return view('home.links', compact('links'));
     }
 }
