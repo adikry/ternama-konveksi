@@ -17772,6 +17772,19 @@ a.text-white:focus {
     box-shadow: 0px 0px 6px 4px rgba(255, 189, 20, 0.7);
 }
 
+.custom-kategori {
+    transition: all 0.3s ease-in-out;
+}
+
+.custom-kategori .text-service {
+    background: #ffbd14;
+    padding: 0 14px;
+}
+
+.custom-kategori.list-service:hover {
+    background-color: unset !important;
+}
+
 .category-price {
     right: 14%;
     bottom: 15%;

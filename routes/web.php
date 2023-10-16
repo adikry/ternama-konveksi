@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PortofolioController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,10 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::controller(PortofolioController::class)->group(function () {
     Route::get('/portofolio/{kategori:slug}', 'porto');
+});
+
+Route::controller(ServiceController::class)->group(function () {
+    Route::get('/service/{service:slug}', 'index');
 });
 
 Route::controller(BlogController::class)->group(function () {

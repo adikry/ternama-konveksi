@@ -70,26 +70,19 @@
                         @if ($service->isActive)
                             <div class="box" data-animate="fadeInUp">
                                 <div class="card border-0">
-                                    <div class="img-card-custom">
-                                        <img src="{{ asset('storage/' . $service->thumbnail) }}" alt="{{ $service->nama }}"
-                                            class="card-img rounded-lg" />
-                                    </div>
-                                    <div class="card-img-overlay rounded-lg d-inline-flex align-items-center justify-content-center p-4 custom-kategori"
-                                        style="background-color: rgba(0, 0, 0, 0.65)">
-                                        <p class="text-uppercase font-weight-bold text-white">
-                                            {{ $service->nama }}
-                                        </p>
-                                        <div
-                                            class="position-absolute pos-fixed-center px-7 px-sm-6 py-7 d-flex w-100 h-100 justify-content-center content-change-horizontal">
-                                            <div class="card w-100 card-desc border-0 rounded-lg">
-                                                <div class="p-4 m-auto">
-                                                    <h4 class="fs-16 text-primary font-weight-600">
-                                                        {{ $service->description }}
-                                                    </h4>
-                                                </div>
-                                            </div>
+                                    <a href="/service/{{ $service->slug }}">
+                                        <div class="img-card-custom">
+                                            <img src="{{ asset('storage/' . $service->thumbnail) }}"
+                                                alt="{{ $service->nama }}" class="card-img rounded-lg" />
                                         </div>
-                                    </div>
+                                        <div class="card-img-overlay rounded-lg d-inline-flex align-items-center justify-content-center p-4 custom-kategori list-service"
+                                            style="background-color: rgba(0, 0, 0, 0.65)">
+                                            <p
+                                                class="text-uppercase font-weight-bold text-primary text-service rounded-lg shadow-lg">
+                                                {{ $service->nama }}
+                                            </p>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         @endif

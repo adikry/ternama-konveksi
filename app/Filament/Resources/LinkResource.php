@@ -55,6 +55,7 @@ class LinkResource extends Resource
                         Forms\Components\FileUpload::make('thumbnail')
                             ->required()
                             ->image()
+                            ->optimize('webp')
                             ->maxSize(1028)
                             ->directory('link-list'),
                     ])

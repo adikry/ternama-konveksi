@@ -52,12 +52,14 @@ class KategoriResource extends Resource
                 Forms\Components\FileUpload::make('display')
                     ->required()
                     ->image()
+                    ->optimize('webp')
                     ->maxSize(2048)
                     ->directory('kategori-display'),
                 Forms\Components\FileUpload::make('sizeChart')
                     ->required()
                     ->image()
-                    ->maxSize(2048)
+                    ->optimize('webp')
+                    ->maxSize(1024)
                     ->directory('kategori-sizeChart'),
                 Forms\Components\TextInput::make('startFrom')
                     ->maxLength(255)

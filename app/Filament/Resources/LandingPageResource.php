@@ -38,7 +38,8 @@ class LandingPageResource extends Resource
                             ->schema([
                                 Forms\Components\FileUpload::make('content')
                                     ->image()
-                                    ->maxSize(2048)
+                                    ->maxSize(1024)
+                                    ->optimize('webp')
                                     ->directory('content-landing'),
                                 Forms\Components\Select::make('button')
                                     ->options([
@@ -61,7 +62,7 @@ class LandingPageResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('content')->view('filament.tables.columns.content'),
+                Tables\Columns\TextColumn::make('content')->view('filament.tables.columns.landing_page.content'),
                 ToggleColumn::make('isActive'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime('d M Y')

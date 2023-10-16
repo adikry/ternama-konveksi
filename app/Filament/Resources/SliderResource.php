@@ -37,8 +37,9 @@ class SliderResource extends Resource
                     ->schema([
                         FileUpload::make('thumbnail')
                             ->image()
-                            ->maxSize(2048)
+                            ->maxSize(1024)
                             ->required()
+                            ->optimize('webp')
                             ->directory('head-slider'),
                         Forms\Components\Textarea::make('desc')
                             ->required()
@@ -74,12 +75,16 @@ class SliderResource extends Resource
                 Tables\Actions\EditAction::make()
                     ->before(function (Model $record, array $data) {
                         if ($record->thumbnail != $data['thumbnail']) {
-                            Storage::delete($record->thumbnail);
+                            if (Storage::exists($record->thumbnail)) {
+                                Storage::delete($record->thumbnail);
+                            }
                         }
                     }),
                 Tables\Actions\DeleteAction::make()
                     ->before(function ($record) {
-                        Storage::delete($record->thumbnail);
+                        if (Storage::exists($record->thumbnail)) {
+                            Storage::delete($record->thumbnail);
+                        }
                     }),
             ])
             ->bulkActions([
@@ -87,7 +92,9 @@ class SliderResource extends Resource
                     Tables\Actions\DeleteBulkAction::make()
                         ->before(function (Collection $records) {
                             foreach ($records as $record) {
-                                Storage::delete($record->thumbnail);
+                                if (Storage::exists($record->thumbnail)) {
+                                    Storage::delete($record->thumbnail);
+                                }
                             }
                         }),
                 ]),

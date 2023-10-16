@@ -30,6 +30,26 @@
                         @endif
                     </div>
                 </li>
+                <li aria-haspopup="true" aria-expanded="false"
+                    class="nav-item dropdown my-1 px-0 {{ Request::is('service*') ? 'show' : '' }}">
+                    <a class="nav-link text-white dropdown-toggle pl-2" href="#" data-toggle="dropdown">
+                        Service
+                        <span class="caret"></span>
+                    </a>
+                    <div
+                        class="dropdown-menu p-0 dropdown-menu-listing x-animated x-fadeInUp {{ Request::is('service*') ? 'show' : '' }}">
+                        <!-- List -->
+                        @if ($services)
+                            @foreach ($services as $service)
+                                <div class="dropdown-item pl-2 ">
+                                    <a class="dropdown-link pl-3 text-white" href="/service/{{ $service->slug }}">
+                                        {{ $service->nama }}
+                                    </a>
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
+                </li>
                 <li class="nav-item {{ Request::is('blog*') ? 'active' : '' }} my-1 px-0">
                     <a class="nav-link text-white pl-2" href="/blog"> Blog </a>
                 </li>

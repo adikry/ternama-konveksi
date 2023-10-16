@@ -52,6 +52,24 @@
                                     </div>
                                 </div>
                             </li>
+                            <li aria-haspopup="true" aria-expanded="false"
+                                class="nav-item dropdown-item-pages dropdown py-2 py-xl-5 px-0 {{ Request::is('service*') ? 'active' : '' }} px-xl-4">
+                                <a class="nav-link dropdown-toggle py-1 px-2 rounded-lg" href="#"
+                                    data-toggle="dropdown">
+                                    Service
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu pt-3 pb-0 pb-xl-3 x-animated x-fadeInUp bg-accent">
+                                    @if ($services)
+                                        @foreach ($services as $service)
+                                            <li class="dropdown-item">
+                                                <a href="/service/{{ $service->slug }}"
+                                                    class="dropdown-link">{{ $service->nama }}</a>
+                                            </li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                            </li>
                             <li class="nav-item {{ Request::is('blog*') ? 'active' : '' }} py-xl-5 px-0 px-xl-4">
                                 <a class="nav-link py-1 px-2 rounded-lg" href="/blog"> Blog </a>
                             </li>

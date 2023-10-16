@@ -5,6 +5,7 @@ namespace App\Filament\Resources\BlogResource\Pages;
 use App\Filament\Resources\BlogResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
 class EditBlog extends EditRecord
@@ -26,6 +27,18 @@ class EditBlog extends EditRecord
         $data['user_id'] = auth()->id();
 
         return $data;
+    }
+
+    protected function handleRecordUpdate(Model $record, array $data): Model
+    {
+
+        if ($record->thumbnail != $data['thumbnail']) {
+            Storage::delete($record->thumbnail);
+        }
+
+        $record->update($data);
+
+        return $record;
     }
 
     protected function getRedirectUrl(): string

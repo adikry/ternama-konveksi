@@ -19,6 +19,19 @@
     <meta name="msapplication-TileColor" content="#ffc40d">
     <meta name="theme-color" content="#ffffff">
 
+    @stack('head')
+
+    @if ($market)
+        @foreach ($market as $item)
+            @if ($item->appName === 'Google Tag')
+                {!! $item->head !!}
+            @endif
+
+            @if ($item->appName === 'Meta API')
+                {!! $item->head !!}
+            @endif
+        @endforeach
+    @endif
 
     <!-- Vendors CSS -->
     <link
@@ -30,7 +43,7 @@
     <link rel="stylesheet" href="/assets/vendors/magnific-popup/magnific-popup.min.css" />
     <link rel="stylesheet" href="/assets/vendors/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="/assets/vendors/animate.css" />
-    <link rel="stylesheet" href="/assets/vendors/mapbox-gl/mapbox-gl.min.css" />
+    {{-- <link rel="stylesheet" href="/assets/vendors/mapbox-gl/mapbox-gl.min.css" /> --}}
     <!-- Themes core CSS -->
     <link rel="stylesheet" href="/assets/css/themes.min.css" />
 
@@ -39,6 +52,14 @@
 </head>
 
 <body>
+
+    @if ($market)
+        @foreach ($market as $item)
+            @if ($item->appName === 'Google Tag')
+                {!! $item->body !!}
+            @endif
+        @endforeach
+    @endif
 
     @include('layouts.frontend.header')
 
@@ -63,7 +84,7 @@
     <script src="/assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
     <script src="/assets/vendors/hc-sticky/hc-sticky.min.js"></script>
     <script src="/assets/vendors/jparallax/TweenMax.min.js"></script>
-    <script src="/assets/vendors/mapbox-gl/mapbox-gl.js"></script>
+    {{-- <script src="/assets/vendors/mapbox-gl/mapbox-gl.js"></script> --}}
     <!-- Theme scripts -->
     <script src="/assets/js/theme.min.js"></script>
     <script src="/assets/js/custom.js"></script>
@@ -73,6 +94,13 @@
         <a href="#"
             class="gtf-back-to-top border border-white bg-white text-primary hover-white bg-hover-primary shadow p-0 w-52px h-52 rounded-circle fs-20 d-flex align-items-center justify-content-center"
             title="Back To Top"><i class="fal fa-arrow-up"></i></a>
+    </div>
+    <div class="floating_btn">
+        <a target="_blank" href="https://wa.me/" class="gtf-back-to-top">
+            <div class="contact_icon">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+        </a>
     </div>
     @include('layouts.frontend.sidenav')
 </body>

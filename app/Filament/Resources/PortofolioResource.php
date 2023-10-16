@@ -62,7 +62,8 @@ class PortofolioResource extends Resource
                                 Forms\Components\FileUpload::make('thumbnail')
                                     ->required()
                                     ->image()
-                                    ->maxSize(2048)
+                                    ->optimize('webp')
+                                    ->maxSize(1024)
                                     ->directory('head-porto'),
                                 Forms\Components\Select::make('kategori_id')
                                     ->relationship('kategori', 'nama')
@@ -108,12 +109,7 @@ class PortofolioResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()
-                    ->before(function (Model $record, array $data) {
-                        if ($record->thumbnail != $data['thumbnail']) {
-                            Storage::delete($record->thumbnail);
-                        }
-                    }),
+                Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make()
                     ->before(function ($record) {
                         Storage::delete($record->thumbnail);

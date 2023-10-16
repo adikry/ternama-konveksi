@@ -6,17 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Service extends Model
+class Market extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    protected $table = 'service';
+    protected $table = 'market';
 
     protected $casts = [
-        'isActive' => 'boolean',
-        'content' => 'array',
+        'isActive' => 'boolean'
     ];
 
     public function user(): BelongsTo

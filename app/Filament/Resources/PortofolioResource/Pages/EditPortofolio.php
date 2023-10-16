@@ -5,6 +5,7 @@ namespace App\Filament\Resources\PortofolioResource\Pages;
 use App\Filament\Resources\PortofolioResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
 class EditPortofolio extends EditRecord
@@ -26,6 +27,18 @@ class EditPortofolio extends EditRecord
         $data['user_id'] = auth()->id();
 
         return $data;
+    }
+
+    protected function handleRecordUpdate(Model $record, array $data): Model
+    {
+
+        if ($record->thumbnail != $data['thumbnail']) {
+            Storage::delete($record->thumbnail);
+        }
+
+        $record->update($data);
+
+        return $record;
     }
 
     protected function getRedirectUrl(): string

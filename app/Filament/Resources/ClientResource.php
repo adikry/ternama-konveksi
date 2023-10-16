@@ -37,6 +37,7 @@ class ClientResource extends Resource
                     ->required()
                     ->image()
                     ->maxSize(1024)
+                    ->optimize('webp')
                     ->directory('clients'),
                 Forms\Components\TextInput::make('description')
                     ->maxLength(255),

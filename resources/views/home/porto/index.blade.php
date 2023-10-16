@@ -94,7 +94,7 @@
             <div class="d-flex flex-column">
                 <p class="mb-0">Kontak Kami</p>
                 <div class="pb-2">
-                    <h1>Punya project? Hubungi kami!</h1>
+                    <h1>Ada project? Hubungi kami!</h1>
                     <button class="btn btn-white rounded-lg fadeInUp animated">
                         <i class="fab fa-whatsapp"></i>
                         Whatsapp

@@ -62,7 +62,8 @@ class BlogResource extends Resource
                                 Forms\Components\FileUpload::make('thumbnail')
                                     ->required()
                                     ->image()
-                                    ->maxSize(2048)
+                                    ->maxSize(1024)
+                                    ->optimize('webp')
                                     ->directory('head-blog'),
                                 Forms\Components\DateTimePicker::make('published_at')
                                     ->required()
@@ -102,12 +103,7 @@ class BlogResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()
-                    ->before(function (Model $record, array $data) {
-                        if ($record->thumbnail != $data['thumbnail']) {
-                            Storage::delete($record->thumbnail);
-                        }
-                    }),
+                Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make()
                     ->before(function ($record) {
                         Storage::delete($record->thumbnail);

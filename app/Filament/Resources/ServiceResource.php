@@ -2,21 +2,29 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ServiceResource\Pages;
-use App\Filament\Resources\ServiceResource\RelationManagers;
-use App\Models\Service;
 use Filament\Forms;
+use Filament\Tables;
+use App\Models\Service;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
+use Filament\Forms\Form;
+use Filament\Tables\Table;
+use Illuminate\Support\Str;
+use Filament\Resources\Resource;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
-use Filament\Tables;
-use Filament\Tables\Table;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Textarea;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
+use App\Filament\Resources\ServiceResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Illuminate\Support\Facades\Storage;
+use App\Filament\Resources\ServiceResource\RelationManagers;
+use Filament\Forms\Components\Actions\Action;
+use Filament\Forms\Components\Hidden;
 
 class ServiceResource extends Resource
 {
@@ -24,7 +32,7 @@ class ServiceResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-queue-list';
 
-    protected static ?string $navigationGroup = 'Main';
+    protected static ?string $navigationGroup = 'Konten';
 
     public static function form(Form $form): Form
     {
@@ -36,17 +44,45 @@ class ServiceResource extends Resource
                             ->schema([
                                 Forms\Components\TextInput::make('nama')
                                     ->required()
+                                    ->reactive()
+                                    ->debounce()
+                                    ->afterStateUpdated(function (Get $get, Set $set, ?string $old, ?string $state) {
+                                        if (($get('slug') ?? '') !== Str::slug($old)) {
+                                            return;
+                                        }
+
+                                        $set('slug', Str::slug($state));
+                                    })
                                     ->maxLength(255),
+                                Hidden::make('slug')
+                                    ->required()
+                                    ->unique(ignoreRecord: true),
                                 Forms\Components\Toggle::make('isActive')
                                     ->required()
                                     ->inline(false),
                                 Forms\Components\FileUpload::make('thumbnail')
                                     ->required()
                                     ->image()
-                                    ->maxSize(2048)
+                                    ->optimize('webp')
+                                    ->maxSize(1024)
                                     ->directory('service-display'),
                                 Forms\Components\Textarea::make('description')
                                     ->rows(4),
+                            ]),
+                        Grid::make(1)
+                            ->schema([
+                                Repeater::make('content')
+                                    ->schema([
+                                        FileUpload::make('content_')
+                                            ->image()
+                                            ->maxSize(1028)
+                                            ->optimize('webp')
+                                            ->directory('services_content'),
+                                        Textarea::make('content_desc')
+                                            ->autosize()
+                                    ])
+                                    ->defaultItems(1)
+                                    ->columns(2)
                             ])
                     ])
             ]);
@@ -60,9 +96,7 @@ class ServiceResource extends Resource
                     ->height(60),
                 Tables\Columns\TextColumn::make('nama')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('user.name')
-                    ->numeric()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('content')->view('filament.tables.columns.service.content'),
                 Tables\Columns\ToggleColumn::make('isActive'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -77,15 +111,15 @@ class ServiceResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()
-                    ->before(function (Model $record, array $data) {
-                        if ($record->thumbnail != $data['thumbnail']) {
-                            Storage::delete($record->thumbnail);
-                        }
-                    }),
+                Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make()
                     ->before(function ($record) {
                         Storage::delete($record->thumbnail);
+                        for ($i = 0; $i < $record->content; $i++) {
+                            if (Storage::exists($record->content[$i]['content_'])) {
+                                Storage::delete($record->content[$i]['content_']);
+                            }
+                        }
                     }),
             ])
             ->bulkActions([
@@ -94,6 +128,11 @@ class ServiceResource extends Resource
                         ->before(function (Collection $records) {
                             foreach ($records as $record) {
                                 Storage::delete($record->thumbnail);
+                                for ($i = 0; $i < $record->content; $i++) {
+                                    if (Storage::exists($record->content[$i]['content_'])) {
+                                        Storage::delete($record->content[$i]['content_']);
+                                    }
+                                }
                             }
                         }),
                 ]),

@@ -20,8 +20,6 @@ class HomeController extends Controller
     {
         $title = '';
 
-        $services = Service::all();
-
         $clients = Client::all();
 
         $blogs = Blog::query()
@@ -36,7 +34,7 @@ class HomeController extends Controller
             ->orderBy('sort', 'asc')
             ->get();
 
-        return view('home.index', compact('title', 'services', 'clients', 'blogs', 'sliders'));
+        return view('home.index', compact('title', 'clients', 'blogs', 'sliders'));
     }
 
     public function about(): View
@@ -83,9 +81,7 @@ class HomeController extends Controller
             ->limit(1)
             ->first();
 
-        $services = Service::all();
-
-        return view('home.landing', compact('dataLanding', 'services'));
+        return view('home.landing', compact('dataLanding'));
     }
 
     public function links(): View

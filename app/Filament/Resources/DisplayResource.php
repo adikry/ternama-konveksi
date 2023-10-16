@@ -46,7 +46,8 @@ class DisplayResource extends Resource
                 Forms\Components\FileUpload::make('thumbnail')
                     ->required()
                     ->image()
-                    ->maxSize(2048)
+                    ->optimize('webp')
+                    ->maxSize(1024)
                     ->directory('display-thumb'),
                 Textarea::make('desc')
                     ->rows(3)

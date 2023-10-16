@@ -14,6 +14,10 @@ class CreateService extends CreateRecord
     {
         $data['user_id'] = auth()->id();
 
+        $data['content'] = array_filter($data['content'], function ($element) {
+            return $element['content_'] !== null;
+        });
+
         return $data;
     }
 

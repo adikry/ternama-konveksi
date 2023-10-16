@@ -5,6 +5,7 @@ namespace App\Filament\Resources\SliderResource\Pages;
 use App\Filament\Resources\SliderResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
 class EditSlider extends EditRecord
@@ -16,7 +17,9 @@ class EditSlider extends EditRecord
         return [
             Actions\DeleteAction::make()
                 ->before(function ($record) {
-                    Storage::delete($record->thumbnail);
+                    if (Storage::exists($record->thumbnail)) {
+                        Storage::delete($record->thumbnail);
+                    };
                 }),
         ];
     }
@@ -26,6 +29,20 @@ class EditSlider extends EditRecord
         $data['user_id'] = auth()->id();
 
         return $data;
+    }
+
+    protected function handleRecordUpdate(Model $record, array $data): Model
+    {
+
+        if ($record->thumbnail != $data['thumbnail']) {
+            if (Storage::exists($record->thumbnail)) {
+                Storage::delete($record->thumbnail);
+            };
+        }
+
+        $record->update($data);
+
+        return $record;
     }
 
     protected function getRedirectUrl(): string

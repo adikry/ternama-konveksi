@@ -68,4 +68,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Blog::class, 'blog_id');
     }
+
+    public function market(): HasMany
+    {
+        return $this->hasMany(Market::class, 'market_id');
+    }
 }
