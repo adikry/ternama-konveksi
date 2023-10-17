@@ -27,10 +27,6 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/links', 'links');
 });
 
-Route::get('/phpinfo', function () {
-    return phpinfo();
-});
-
 Route::controller(PortofolioController::class)->group(function () {
     Route::get('/portofolio/{kategori:slug}', 'porto');
 });
