@@ -5,7 +5,7 @@
             <div class="col-lg mb-6 mb-lg-0">
                 <div class="d-flex justify-content-center flex-wrap align-content-center flex-column">
                     <a href="#" class="footer-logo d-block"><img src="/assets/images/logo/logo_putih.png"
-                            alt="Furnitor" /></a>
+                            alt="Ternama Konveksi Logo" class="w-100" /></a>
                     <ul class="list-inline text-center border-top border-3x mt-2">
                         <li class="list-inline-item mr-4">
                             <a href="#" class="fs-24 text-white"><i class="fab fa-whatsapp"></i></a>
@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="pt-3 border-top">
-            <p class="text-gray mb-3 mb-md-0 lh-1">
+            <p class="mb-3 mb-md-0 lh-1">
                 © 2023 PT ANP. All rights reserved.
             </p>
         </div>

@@ -47,6 +47,7 @@ class DisplayResource extends Resource
                     ->required()
                     ->image()
                     ->optimize('webp')
+                    ->resize(75)
                     ->maxSize(1024)
                     ->directory('display-thumb'),
                 Textarea::make('desc')

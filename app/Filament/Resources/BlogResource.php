@@ -62,6 +62,7 @@ class BlogResource extends Resource
                                     ->image()
                                     ->maxSize(1024)
                                     ->optimize('webp')
+                                    ->resize(75)
                                     ->directory('head-blog'),
                                 Forms\Components\DateTimePicker::make('published_at')
                                     ->required()

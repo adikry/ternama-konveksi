@@ -40,6 +40,7 @@ class SliderResource extends Resource
                             ->maxSize(1024)
                             ->required()
                             ->optimize('webp')
+                            ->resize(75)
                             ->directory('head-slider'),
                         Forms\Components\Textarea::make('desc')
                             ->required()

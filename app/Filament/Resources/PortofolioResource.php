@@ -66,6 +66,7 @@ class PortofolioResource extends Resource
                                     ->required()
                                     ->image()
                                     ->optimize('webp')
+                                    ->resize(75)
                                     ->maxSize(1024)
                                     ->directory('head-porto'),
                                 Forms\Components\Select::make('kategori_id')
@@ -85,6 +86,7 @@ class PortofolioResource extends Resource
                                                     ->image()
                                                     ->maxSize(1024)
                                                     ->optimize('webp')
+                                                    ->resize(40)
                                                     ->directory('content-porto'),
                                             ])
                                     ])

@@ -52,17 +52,16 @@ class KategoriResource extends Resource
                     ->required()
                     ->image()
                     ->optimize('webp')
-                    ->maxSize(2048)
+                    ->resize(75)
+                    ->maxSize(1024)
                     ->directory('kategori-display'),
                 Forms\Components\FileUpload::make('sizeChart')
                     ->required()
                     ->image()
                     ->optimize('webp')
+                    ->resize(75)
                     ->maxSize(1024)
                     ->directory('kategori-sizeChart'),
-                Forms\Components\TextInput::make('startFrom')
-                    ->maxLength(255)
-                    ->required(),
                 Forms\Components\TextInput::make('desc')
                     ->maxLength(255),
                 Forms\Components\Toggle::make('isActive')

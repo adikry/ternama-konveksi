@@ -40,7 +40,7 @@
     <section class="py-12 py-lg-15">
         <div class="container">
             <div class="mxw-110px mx-auto mb-8" data-animate="fadeInUp">
-                <img src="/assets/images/logo/logo_hitam.png" alt="Logo Ternama Konveksi" />
+                <img src="/assets/images/logo/logo_hitam.png" alt="Logo Ternama Konveksi" class="w-100" />
             </div>
             <div class="mxw-924 mx-auto" data-animate="fadeInUp">
                 <h2 class="fs-30 fs-md-40 lh-14 mb-5 text-center text-primary">
@@ -180,13 +180,13 @@
                     <div id="accordion-style-01" class="accordion">
                         <div class="card rounded border-0 mb-5">
                             <div class="card-header border-0 p-0 bg-transparent" id="headingOne">
-                                <h5 class="mb-0 fs-16 w-100">
+                                <div class="mb-0 fs-16 w-100">
                                     <a href="#" class="d-flex align-items-center py-2 px-3" data-toggle="collapse"
                                         data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         <span class="text-primary">Kualitas</span>
                                         <span class="icon d-inline-block ml-auto"></span>
                                     </a>
-                                </h5>
+                                </div>
                             </div>
                             <div id="collapseOne" class="collapse show rounded-bottom border-top border"
                                 aria-labelledby="headingOne" data-parent="#accordion-style-01">
@@ -201,14 +201,14 @@
                         </div>
                         <div class="card rounded border-0 mb-5">
                             <div class="card-header border-0 p-0 bg-transparent" id="headingTwo">
-                                <h5 class="mb-0 fs-16 w-100">
+                                <div class="mb-0 fs-16 w-100">
                                     <a href="#" class="d-flex align-items-center py-2 px-3 collapsed"
                                         data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
                                         aria-controls="collapseTwo">
                                         <span class="text-primary">Professional</span>
                                         <span class="icon d-inline-block ml-auto"></span>
                                     </a>
-                                </h5>
+                                </div>
                             </div>
                             <div id="collapseTwo" class="collapse rounded-bottom border-top border"
                                 aria-labelledby="headingTwo" data-parent="#accordion-style-01">
@@ -223,18 +223,18 @@
                             </div>
                         </div>
                         <div class="card rounded border-0 mb-5">
-                            <div class="card-header border-0 p-0 bg-transparent" id="headingTwo">
-                                <h5 class="mb-0 fs-16 w-100">
+                            <div class="card-header border-0 p-0 bg-transparent" id="headingThree">
+                                <div class="mb-0 fs-16 w-100">
                                     <a href="#" class="d-flex align-items-center py-2 px-3 collapsed"
                                         data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
                                         aria-controls="collapseThree">
                                         <span class="text-primary">Layanan Terbaik</span>
                                         <span class="icon d-inline-block ml-auto"></span>
                                     </a>
-                                </h5>
+                                </div>
                             </div>
                             <div id="collapseThree" class="collapse rounded-bottom border-top border"
-                                aria-labelledby="headingTwo" data-parent="#accordion-style-01">
+                                aria-labelledby="headingThree" data-parent="#accordion-style-01">
                                 <div class="card-body py-4 px-3 pr-10">
                                     <p class="tetx-gray">
                                         Ternama konveksi selalu berusaha untuk memberikan layanan terbaik dan ramah kepada
@@ -244,18 +244,18 @@
                             </div>
                         </div>
                         <div class="card rounded border-0 mb-5">
-                            <div class="card-header border-0 p-0 bg-transparent" id="headingTwo">
-                                <h5 class="mb-0 fs-16 w-100">
+                            <div class="card-header border-0 p-0 bg-transparent" id="headingFour">
+                                <div class="mb-0 fs-16 w-100">
                                     <a href="#" class="d-flex align-items-center py-2 px-3 collapsed"
                                         data-toggle="collapse" data-target="#collapseFour" aria-expanded="true"
                                         aria-controls="collapseFour">
                                         <span class="text-primary">Konsultasi Gratis</span>
                                         <span class="icon d-inline-block ml-auto"></span>
                                     </a>
-                                </h5>
+                                </div>
                             </div>
                             <div id="collapseFour" class="collapse rounded-bottom border-top border"
-                                aria-labelledby="headingTwo" data-parent="#accordion-style-01">
+                                aria-labelledby="headingFour" data-parent="#accordion-style-01">
                                 <div class="card-body py-4 px-3 pr-10">
                                     <p class="tetx-gray">
                                         Konsultasi di Ternama konveksi untuk membantu Anda memilih desain dan ukuran yang
@@ -266,18 +266,18 @@
                             </div>
                         </div>
                         <div class="card rounded border-0 mb-5">
-                            <div class="card-header border-0 p-0 bg-transparent" id="headingTwo">
-                                <h5 class="mb-0 fs-16 w-100">
+                            <div class="card-header border-0 p-0 bg-transparent" id="headingFive">
+                                <div class="mb-0 fs-16 w-100">
                                     <a href="#" class="d-flex align-items-center py-2 px-3 collapsed"
                                         data-toggle="collapse" data-target="#collapseFive" aria-expanded="true"
                                         aria-controls="collapseFive">
                                         <span class="text-primary">Tanpa Minimal Order</span>
                                         <span class="icon d-inline-block ml-auto"></span>
                                     </a>
-                                </h5>
+                                </div>
                             </div>
                             <div id="collapseFive" class="collapse rounded-bottom border-top border"
-                                aria-labelledby="headingTwo" data-parent="#accordion-style-01">
+                                aria-labelledby="headingFive" data-parent="#accordion-style-01">
                                 <div class="card-body py-4 px-3 pr-10">
                                     <p class="tetx-gray">
                                         Tanpa minimal order, pesanan satuan pun kami layani. Kami siap melayani pesanan
@@ -378,7 +378,7 @@
                             <h2 class="fs-20 fs-md-30 mb-4 text-center text-white">
                                 Bergabung bersama kami.
                             </h2>
-                            <p class="mb-6 font-weight-500">
+                            <p class="mb-6 font-weight-500 text-white">
                                 Penawaran menarik menanti anda, mari bergabung.
                             </p>
                             <form method="POST" id="contact-form" data-animate="fadeInUp"

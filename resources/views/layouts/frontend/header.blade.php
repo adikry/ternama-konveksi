@@ -7,7 +7,8 @@
                 <nav class="navbar navbar-expand-xl px-0 py-2 py-xl-0 row no-gutters">
                     <div class="col-xl-3">
                         <a class="navbar-brand mr-0" href="/">
-                            <img src="/assets/images/logo/logo_putih.png" alt="Furnitor" class="sticky-logo" />
+                            <img src="/assets/images/logo/logo_putih.png" alt="Ternama Konveksi"
+                                class="sticky-logo w-100 h-100" />
                         </a>
                     </div>
                     <div class="mx-auto col-xl-7 d-flex justify-content-end position-static">
@@ -132,10 +133,11 @@
             <div class="d-block d-xl-none">
                 <nav class="navbar navbar-expand-xl px-0 py-2 py-xl-0 w-100 align-items-center">
                     <a class="navbar-brand d-inline-block" href="/">
-                        <img src="/assets/images/logo/logo_putih.png" alt="Furnitor" class="sticky-logo" />
+                        <img src="/assets/images/logo/logo_putih.png" alt="Ternama Konveksi"
+                            class="sticky-logo w-100 h-100" />
                     </a>
                     <button class="navbar-toggler border-0 px-0 canvas-toggle" type="button" data-canvas="true"
-                        data-canvas-options='{"width":"250px","container":".sidenav"}'>
+                        data-canvas-options='{"width":"250px","container":".sidenav"}' aria-label="Hamburger Button">
                         <span class="fs-24 toggle-icon"></span>
                     </button>
                 </nav>

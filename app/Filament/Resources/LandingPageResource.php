@@ -40,6 +40,7 @@ class LandingPageResource extends Resource
                                     ->image()
                                     ->maxSize(1024)
                                     ->optimize('webp')
+                                    ->resize(65)
                                     ->directory('content-landing'),
                                 Forms\Components\TextInput::make('link')
                                     ->required(),

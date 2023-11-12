@@ -76,7 +76,7 @@
                     <a href="#" class="fs-20 lh-1 text-white"><i class="fab fa-twitter"></i></a>
                 </li>
             </ul>
-            <p class="mb-0 text-gray">
+            <p class="mb-0">
                 © 2023 Ternama Konveksi.<br />
                 All rights reserved.
             </p>

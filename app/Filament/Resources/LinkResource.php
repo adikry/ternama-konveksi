@@ -56,6 +56,7 @@ class LinkResource extends Resource
                             ->required()
                             ->image()
                             ->optimize('webp')
+                            ->resize(50)
                             ->maxSize(1028)
                             ->directory('link-list'),
                     ])

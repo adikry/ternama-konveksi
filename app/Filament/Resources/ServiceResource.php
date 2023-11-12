@@ -64,6 +64,7 @@ class ServiceResource extends Resource
                                     ->required()
                                     ->image()
                                     ->optimize('webp')
+                                    ->resize(75)
                                     ->maxSize(1024)
                                     ->directory('service-display'),
                                 Forms\Components\Textarea::make('description')
@@ -77,6 +78,7 @@ class ServiceResource extends Resource
                                             ->image()
                                             ->maxSize(1028)
                                             ->optimize('webp')
+                                            ->resize(75)
                                             ->directory('services_content'),
                                         Textarea::make('content_desc')
                                             ->autosize()
