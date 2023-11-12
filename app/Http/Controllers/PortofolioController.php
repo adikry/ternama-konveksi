@@ -17,7 +17,9 @@ class PortofolioController extends Controller
             ->where('kategori_id', '=', $kategori->id)
             ->where('isActive', '=', 1)
             ->where('published_at', '!=', null)
-            ->get();
+            ->limit(15)
+            ->paginate(3)
+            ->withQueryString();
 
         $display = Display::query()
             ->where('konten', '=', 'Portofolio')

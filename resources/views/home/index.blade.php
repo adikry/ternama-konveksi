@@ -99,12 +99,20 @@
             <div class="row align-items-center no-gutters">
                 <div class="col-lg-3 mb-6 mb-lg-0 pr-xxl-8" data-animate="fadeInLeft">
                     <h2 class="fs-30 fs-md-56 mb-5 text-white">
-                        Price<br />
-                        And Size
+                        Display<br />
+                        Katalog
                     </h2>
-                    <p class="mb-0 font-weight-500 text-gray-03">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Aspernatur, quis.
+                    <p class="mb-0 font-weight-500 text-gray-03 mr-10">
+                        Kami menyediakan Display Katalog yang berisi gambar dan tabel sizechart
+                        <span class="invisible position-absolute">T-Shirt, Longsleeve,
+                            Hoodie, Polo Shirt, T-Shirt Kids, Crewneck, dengan harga yang murah, dan juga bisa satuan. kami
+                            mengedepankan kualitas kami jangan sungkan untuk bertanya. kami adalah konveksi yang
+                            professional, bisa pesan satuan, proses cepat, konveksi terdekat dari kota Garut</span>
+                        .
+                        Katalog ini dapat disesuaikan dengan kebutuhan brand Anda,
+                        sehingga
+                        brand hanya
+                        perlu memilih warna dan sizechart yang sudah ada.
                     </p>
                     <div class="pt-8 pt-lg-11 d-flex custom-arrow">
                         <a href="#" class="arrow navId-0 slick-prev"><i class="far fa-arrow-left"></i></a>
@@ -123,12 +131,12 @@
                                             <img src="{{ asset('storage/' . $kategori->display) }}"
                                                 alt="{{ $kategori->nama }}" class="card-img" />
                                         </div>
-                                        <div
+                                        {{-- <div
                                             class="d-flex align-items-center flex-column justify-content-center badge-display position-absolute rounded-circle text-ternama border border-2x border-white-darker shadow">
                                             <span class="fs-12 mb-0">Mulai dari</span>
                                             <span
                                                 class="fs-16 fs-md-24 font-weight-600 line-height-custom">{{ $kategori->startFrom }}</span>
-                                        </div>
+                                        </div> --}}
                                         <div class="card-img-overlay d-inline-flex flex-column px-5 pt-3 pb-1">
                                             <div class="d-flex justify-content-between align-items-start">
                                                 <h3 class="card-title fs-20 fs-md-40">{{ $kategori->nama }}</h3>
@@ -229,11 +237,8 @@
                                 aria-labelledby="headingTwo" data-parent="#accordion-style-01">
                                 <div class="card-body py-4 px-3 pr-10">
                                     <p class="tetx-gray">
-                                        Ternama konveksi Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Odit et porro, autem obcaecati
-                                        praesentium amet placeat dicta consequatur commodi
-                                        facere voluptatem eum ad temporibus aliquid debitis
-                                        dolorum libero perspiciatis. Neque?
+                                        Ternama konveksi selalu berusaha untuk memberikan layanan terbaik dan ramah kepada
+                                        pelanggan.
                                     </p>
                                 </div>
                             </div>
@@ -253,9 +258,9 @@
                                 aria-labelledby="headingTwo" data-parent="#accordion-style-01">
                                 <div class="card-body py-4 px-3 pr-10">
                                     <p class="tetx-gray">
-                                        Ternama konveksi Lorem ipsum dolor sit amet consectetur,
-                                        adipisicing elit. Reiciendis ipsa fuga quos est pariatur
-                                        eveniet.
+                                        Konsultasi di Ternama konveksi untuk membantu Anda memilih desain dan ukuran yang
+                                        tepat. Ternama Konveksi siap membantu Anda dalam memilih desain dan ukuran yang
+                                        sesuai dengan kebutuhan Anda.
                                     </p>
                                 </div>
                             </div>
@@ -275,8 +280,8 @@
                                 aria-labelledby="headingTwo" data-parent="#accordion-style-01">
                                 <div class="card-body py-4 px-3 pr-10">
                                     <p class="tetx-gray">
-                                        Ternama konveksi Lorem, ipsum dolor sit amet consectetur
-                                        adipisicing elit. Velit obcaecati tempore voluptates!
+                                        Tanpa minimal order, pesanan satuan pun kami layani. Kami siap melayani pesanan
+                                        konveksi baju dalam jumlah apapun, termasuk pesanan satuan.
                                     </p>
                                 </div>
                             </div>
@@ -295,15 +300,13 @@
                 </h2>
             </div>
             <div class="slick-slider" data-animate="fadeInRight"
-                data-slick-options='{"slidesToShow": 7,"infinite":true,"autoplay":true, "autoplaySpeed": 1500, "dots":false,"arrows":false,"responsive":[{"breakpoint": 1367,"settings": {"slidesToShow":5}},{"breakpoint": 992,"settings": {"slidesToShow":5}},{"breakpoint": 768,"settings": {"slidesToShow": 4}},{"breakpoint": 576,"settings": {"slidesToShow": 2}}]}'>
+                data-slick-options='{"slidesToShow": 9,"infinite":true,"autoplay":true, "autoplaySpeed": 3000, "dots":false,"arrows":false,"responsive":[{"breakpoint": 1367,"settings": {"slidesToShow":6}},{"breakpoint": 992,"settings": {"slidesToShow":5}},{"breakpoint": 768,"settings": {"slidesToShow": 4}},{"breakpoint": 576,"settings": {"slidesToShow": 3}}]}'>
                 @if ($clients)
                     @foreach ($clients as $client)
                         <div class="box">
-                            <div class="client-content">
-                                <div class="client-item">
-                                    <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->nama }}"
-                                        class="opacity-5 opacity-hover-10" />
-                                </div>
+                            <div class="img-card-custom">
+                                <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->nama }}"
+                                    class="opacity-5 opacity-hover-10" style="object-fit: contain !important;" />
                             </div>
                         </div>
                     @endforeach
@@ -318,8 +321,7 @@
                 <div class="mb-0">
                     <h2 class="fs-30 fs-md-40 text-white">Artikel Kami</h2>
                     <p class="font-weight-500 text-gray-03">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                        Eveniet, natus?
+                        Koleksi Artikel dari Ternama Konveksi yang Informatif dan Bermanfaat.
                     </p>
                 </div>
                 <div class="d-flex custom-arrow">

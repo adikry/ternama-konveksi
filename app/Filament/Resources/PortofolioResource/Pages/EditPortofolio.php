@@ -18,6 +18,9 @@ class EditPortofolio extends EditRecord
             Actions\DeleteAction::make()
                 ->before(function ($record) {
                     Storage::delete($record->thumbnail);
+                    for ($i = 0; $i < count($record->content); $i++) {
+                        Storage::delete($record->content[$i]['content']);
+                    }
                 }),
         ];
     }
@@ -34,6 +37,16 @@ class EditPortofolio extends EditRecord
 
         if ($record->thumbnail != $data['thumbnail']) {
             Storage::delete($record->thumbnail);
+        }
+
+        $data['content'] = array_filter($data['content'], function ($element) {
+            return $element['content'] !== null;
+        });
+
+        for ($i = 0; $i < count($record->content); $i++) {
+            if ($record->content[$i]['content'] != $data['content'][$i]['content']) {
+                Storage::delete($record->content[$i]['content']);
+            }
         }
 
         $record->update($data);

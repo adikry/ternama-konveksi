@@ -49,10 +49,8 @@ class BlogResource extends Resource
 
                                         $set('slug', Str::slug($state));
                                     }),
-                                Forms\Components\TextInput::make('slug')
-                                    ->required()
-                                    ->unique(ignoreRecord: true)
-                                    ->maxLength(255),
+                                Forms\Components\Hidden::make('slug')
+                                    ->unique(ignoreRecord: true),
                                 Forms\Components\RichEditor::make('body')
                                     ->required()
                                     ->disableToolbarButtons([

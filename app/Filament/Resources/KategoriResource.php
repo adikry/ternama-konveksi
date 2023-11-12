@@ -45,10 +45,9 @@ class KategoriResource extends Resource
 
                         $set('slug', Str::slug($state));
                     }),
-                Forms\Components\TextInput::make('slug')
+                Forms\Components\Hidden::make('slug')
                     ->required()
-                    ->unique(ignoreRecord: true)
-                    ->maxLength(255),
+                    ->unique(ignoreRecord: true),
                 Forms\Components\FileUpload::make('display')
                     ->required()
                     ->image()

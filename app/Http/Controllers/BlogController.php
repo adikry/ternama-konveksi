@@ -17,6 +17,7 @@ class BlogController extends Controller
             ->where('isActive', '=', 1)
             ->where('published_at', '!=', null)
             ->orderBy('published_at', 'desc')
+            ->limit(25)
             ->paginate(5)
             ->withQueryString();
 

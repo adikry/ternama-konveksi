@@ -1,5 +1,13 @@
 @extends('layouts.frontend.main')
 
+@push('css')
+    <link rel="stylesheet" href="/assets/vendors/fancybox/fancybox.css">
+@endpush
+
+@push('js')
+    <script src="/assets/vendors/fancybox/fancybox.js"></script>
+@endpush
+
 @section('container')
     <!-- Banner Section -->
     @if ($display)
@@ -22,59 +30,53 @@
         <section class="py-5 py-lg-8 bg-main">
             <div class="container container-xxl">
                 <div class="row justify-content-center align-content-center align-items-center">
-                    <div class="col-lg-2">
-                        <h1 class="fs-30 fs-lg-40 text-white">{{ $kategori->nama }}</h1>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="category-slider">
-                            <div class="slick-slider dots-inner-center custom-slider-01"
-                                data-slick-options='{"slidesToShow": 1, "infinite":true,"autoplay":false,"dots":true,"arrows":true, "responsive":[{"breakpoint": 1200,"settings": {"slidesToShow":1}},{"breakpoint": 576,"settings": {"slidesToShow": 1}}]}'>
-                                @foreach ($portofolio as $porto)
-                                    <div class="box">
-                                        <div
-                                            class="card bg-accent card-display rounded-lg shadow-sm article-list px-2 py-2 position-relative">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="h-100 img-post img-rounded">
+                    <h1 class="fs-30 fs-lg-40 text-white mb-8">T-shirt Portofolio</h1>
+                    <div class="col-md-10">
+                        @foreach ($portofolio as $porto)
+                            <div class="card bg-accent card-display rounded-lg shadow-sm article-list p-2 mb-10">
+                                <div class="row">
+                                    <div class="col-md-8 col-lg-8 col-sm-12 col-12">
+                                        <div class="slick-slider custom-slider-01"
+                                            data-slick-options='{"slidesToShow": 1,"autoplay":false,"dots":false,"arrows":true, "responsive":[{"breakpoint": 1200,"settings": {"slidesToShow":1}},{"breakpoint": 576,"settings": {"slidesToShow": 1}}]}'>
+                                            <div class="box cursor-pointer">
+                                                <div class="h-100 img-post img-rounded">
+                                                    <a data-fancybox="gallery{{ $porto->id }}"
+                                                        data-src="{{ asset('storage/' . $porto->thumbnail) }}">
                                                         <img src="{{ asset('storage/' . $porto->thumbnail) }}"
-                                                            alt="{{ $porto->nama }}" />
+                                                            alt="{{ $porto->nama }}" class="rounded-lg">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            @for ($i = 0; $i < count($porto->content); $i++)
+                                                <div class="box cursor-pointer">
+                                                    <div class="h-100 img-post img-rounded">
+                                                        <a data-fancybox="gallery{{ $porto->id }}"
+                                                            data-src="{{ asset('storage/' . $porto->content[$i]['content']) }}">
+                                                            <img src="{{ asset('storage/' . $porto->content[$i]['content']) }}"
+                                                                alt="{{ $porto->nama }} {{ $i }}"
+                                                                class="rounded-lg">
+                                                        </a>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6">
-                                                    <div class="d-flex flex-column">
-                                                        <div class="inline-flex flex-column px-5 pt-3 pb-4">
-                                                            <h1 class="mb-2 pt-5 fs-20 fs-lg-30 lh-1 text-white">
-                                                                {{ $porto->nama }}
-                                                            </h1>
-                                                            <div class="text-white">
-                                                                {!! $porto->desc !!}
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                            @endfor
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-lg-4 col-sm-12 col-12">
+                                        <div class="d-flex flex-column">
+                                            <div class="inline-flex flex-column px-5 pt-3 pb-4">
+                                                <h1 class="mb-2 pt-5 fs-20 fs-lg-30 lh-1 text-white">
+                                                    {{ $porto->nama }}
+                                                </h1>
+                                                <div class="text-white">
+                                                    {!! $porto->desc !!}
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- <div
-                                            class="card bg-accent card-display rounded-lg shadow-sm px-2 py-2 position-relative">
-                                            <div class="d-flex flex-column justify-content-between">
-                                                <div class="w-100 img-card-custom">
-                                                    <img src="{{ asset('storage/' . $porto->thumbnail) }}" alt="T-Shirt"
-                                                        class="card-img rounded-lg shadow" />
-                                                </div>
-                                                <div class="w-50 d-inline-flex flex-column px-5 pt-3 pb-4">
-                                                    <h1 class="mb-2 pt-5 fs-20 fs-lg-30 lh-1 text-white">
-                                                        {{ $porto->nama }}
-                                                    </h1>
-                                                    <div class="text-white">
-                                                        {!! $porto->desc !!}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div> --}}
                                     </div>
-                                @endforeach
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
+                        {{ $portofolio->links() }}
                     </div>
                 </div>
             </div>
@@ -126,3 +128,10 @@
     @endif
 
 @endsection
+@push('js')
+    <script>
+        Fancybox.bind('[data-fancybox]', {
+            //
+        });
+    </script>
+@endpush

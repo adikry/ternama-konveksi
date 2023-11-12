@@ -15,7 +15,8 @@ class Portofolio extends Model
     protected $table = 'portofolio';
 
     protected $casts = [
-        'isActive' => 'boolean'
+        'isActive' => 'boolean',
+        'content' => 'array',
     ];
 
     public function user(): BelongsTo

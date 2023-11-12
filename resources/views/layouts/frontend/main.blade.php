@@ -43,7 +43,6 @@
     <link rel="stylesheet" href="/assets/vendors/magnific-popup/magnific-popup.min.css" />
     <link rel="stylesheet" href="/assets/vendors/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="/assets/vendors/animate.css" />
-    {{-- <link rel="stylesheet" href="/assets/vendors/mapbox-gl/mapbox-gl.min.css" /> --}}
     <!-- Themes core CSS -->
     <link rel="stylesheet" href="/assets/css/themes.min.css" />
 
@@ -61,7 +60,7 @@
         @endforeach
     @endif
 
-    @include('layouts.frontend.header')
+    @include('layouts.frontend.header', ['header' => 'main'])
 
     <!-- Start Main Content -->
     <main id="content">
@@ -84,7 +83,6 @@
     <script src="/assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
     <script src="/assets/vendors/hc-sticky/hc-sticky.min.js"></script>
     <script src="/assets/vendors/jparallax/TweenMax.min.js"></script>
-    {{-- <script src="/assets/vendors/mapbox-gl/mapbox-gl.js"></script> --}}
     <!-- Theme scripts -->
     <script src="/assets/js/theme.min.js"></script>
     <script src="/assets/js/custom.js"></script>

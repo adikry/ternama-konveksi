@@ -1,5 +1,6 @@
 <!-- Start Header -->
-<header class="main-header navbar-dark header-sticky header-sticky-smart position-absolute fixed-top">
+<header class="main-header navbar-dark header-sticky header-sticky-smart position-absolute fixed-top"
+    @if ($header === 'dark') style="background-color: #000 !important" @endif>
     <div class="sticky-area">
         <div class="container container-xxl">
             <div class="d-none d-xl-block">
@@ -53,22 +54,47 @@
                                 </div>
                             </li>
                             <li aria-haspopup="true" aria-expanded="false"
-                                class="nav-item dropdown-item-pages dropdown py-2 py-xl-5 px-0 {{ Request::is('service*') ? 'active' : '' }} px-xl-4">
+                                class="nav-item dropdown-item-shop dropdown py-2 py-xl-5 px-0 {{ Request::is('service*') ? 'active' : '' }} px-xl-4">
                                 <a class="nav-link dropdown-toggle py-1 px-2 rounded-lg" href="#"
                                     data-toggle="dropdown">
                                     Service
                                     <span class="caret"></span>
                                 </a>
-                                <ul class="dropdown-menu pt-3 pb-0 pb-xl-3 x-animated x-fadeInUp bg-accent">
-                                    @if ($services)
-                                        @foreach ($services as $service)
-                                            <li class="dropdown-item">
-                                                <a href="/service/{{ $service->slug }}"
-                                                    class="dropdown-link">{{ $service->nama }}</a>
-                                            </li>
-                                        @endforeach
-                                    @endif
-                                </ul>
+                                <div
+                                    class="dropdown-menu dropdown-menu-xl bg-main px-0 pb-10 pt-5 dropdown-menu-listing overflow-hidden x-animated x-fadeInUp">
+                                    <div class="container container-xxl">
+                                        <div class="row no-gutters w-100">
+                                            @if ($services)
+                                                @foreach ($services as $service)
+                                                    <div class="col-2 h-100">
+                                                        <div class="px-2">
+                                                            <div
+                                                                class="card rounded shadow border-0 mt-2 custom-kategori overflow-hidden">
+                                                                <a href="/service/{{ $service->slug }}" class="rounded">
+                                                                    <div class="img-post"
+                                                                        style="padding-bottom: 80% !important">
+                                                                        <img src="{{ asset('storage/' . $service->thumbnail) }}"
+                                                                            alt="Servis Ternama Konveksi {{ $service->nama }}">
+                                                                    </div>
+                                                                    <div class="card-img-overlay d-inline-flex align-items-center justify-content-center p-4 custom-kategori list-service"
+                                                                        style="background-color: {{ Request::is('service/' . $service->slug) ? 'rgba(0, 0, 0, 0.1)' : 'rgba(0,0,0, 0.6)' }}">
+                                                                        <p
+                                                                            class="text-uppercase font-weight-bold text-primary text-service rounded shadow-lg">
+                                                                            {{ $service->nama }}</p>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- <li class="dropdown-item">
+                                                        <a href="/service/{{ $service->slug }}"
+                                                            class="dropdown-link">{{ $service->nama }}</a>
+                                                    </li> --}}
+                                                @endforeach
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
                             </li>
                             <li class="nav-item {{ Request::is('blog*') ? 'active' : '' }} py-xl-5 px-0 px-xl-4">
                                 <a class="nav-link py-1 px-2 rounded-lg" href="/blog"> Blog </a>

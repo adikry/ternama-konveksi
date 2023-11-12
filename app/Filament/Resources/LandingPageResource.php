@@ -41,14 +41,8 @@ class LandingPageResource extends Resource
                                     ->maxSize(1024)
                                     ->optimize('webp')
                                     ->directory('content-landing'),
-                                Forms\Components\Select::make('button')
-                                    ->options([
-                                        'Whatsapp' => 'Whatsapp',
-                                        'Instagram' => 'Instagram',
-                                        'Tiktok' => 'Tiktok'
-                                    ])
-                                    ->searchable()
-                                    ->preload(),
+                                Forms\Components\TextInput::make('link')
+                                    ->required(),
 
                             ])
                     ]),

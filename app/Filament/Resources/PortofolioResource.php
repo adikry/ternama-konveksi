@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PortofolioResource\Pages;
 use App\Filament\Resources\PortofolioResource\RelationManagers;
+use Filament\Forms\Components\Repeater;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -49,10 +50,12 @@ class PortofolioResource extends Resource
 
                                         $set('slug', Str::slug($state));
                                     }),
-                                Forms\Components\TextInput::make('slug')
+                                Forms\Components\Toggle::make('isActive')
                                     ->required()
-                                    ->unique(ignoreRecord: true)
-                                    ->maxLength(255),
+                                    ->inline(false),
+                                Forms\Components\Hidden::make('slug')
+                                    ->required()
+                                    ->unique(ignoreRecord: true),
                                 Forms\Components\RichEditor::make('desc')
                                     ->columnSpanFull()
                                     ->disableToolbarButtons([
@@ -73,8 +76,18 @@ class PortofolioResource extends Resource
                                 Forms\Components\DateTimePicker::make('published_at')
                                     ->required()
                                     ->default(now()),
-                                Forms\Components\Toggle::make('isActive')
-                                    ->required(),
+                                Repeater::make('content')
+                                    ->columnSpanFull()
+                                    ->schema([
+                                        Grid::make(2)
+                                            ->schema([
+                                                Forms\Components\FileUpload::make('content')
+                                                    ->image()
+                                                    ->maxSize(1024)
+                                                    ->optimize('webp')
+                                                    ->directory('content-porto'),
+                                            ])
+                                    ])
                             ])
                     ])
             ]);
@@ -113,6 +126,9 @@ class PortofolioResource extends Resource
                 Tables\Actions\DeleteAction::make()
                     ->before(function ($record) {
                         Storage::delete($record->thumbnail);
+                        for ($i = 0; $i < count($record->content); $i++) {
+                            Storage::delete($record->content[$i]['content']);
+                        }
                     }),
             ])
             ->bulkActions([
@@ -121,6 +137,9 @@ class PortofolioResource extends Resource
                         ->before(function (Collection $records) {
                             foreach ($records as $record) {
                                 Storage::delete($record->thumbnail);
+                                for ($i = 0; $i < count($record->content); $i++) {
+                                    Storage::delete($record->content[$i]['content']);
+                                }
                             }
                         }),
                 ]),
