@@ -67,7 +67,7 @@
                     Jasa Kami
                 </p>
                 <div class="text-center">
-                    <a href="#section-next"
+                    <a href="#section-next" rel="nofollow"
                         class="go-down d-inline-flex align-items-center text-primary justify-content-center w-50px h-50px rounded-circle border"><i
                             class="far fa-arrow-down"></i></a>
                 </div>
@@ -131,8 +131,10 @@
                         perlu memilih warna dan sizechart yang sudah ada.
                     </p>
                     <div class="pt-8 pt-lg-11 d-flex custom-arrow">
-                        <a href="#" class="arrow navId-0 slick-prev"><i class="far fa-arrow-left"></i></a>
-                        <a href="#" class="arrow navId-0 slick-next"><i class="far fa-arrow-right"></i></a>
+                        <a href="#" rel="nofollow" class="arrow navId-0 slick-prev"><i
+                                class="far fa-arrow-left"></i></a>
+                        <a href="#" rel="nofollow" class="arrow navId-0 slick-next"><i
+                                class="far fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-9 category-slider pl-xxl-9 pr-lg-6" data-animate="fadeInRight">
@@ -158,7 +160,7 @@
                                                 <h3 class="card-title fs-20 fs-md-40">{{ $kategori->nama }}</h3>
                                             </div>
                                             <div class="mt-auto mx-auto">
-                                                <a data-toggle="popover-hover"
+                                                <a data-toggle="popover-hover" href="#" rel="nofollow"
                                                     data-img="{{ asset('storage/' . $kategori->sizeChart) }}"
                                                     class="fs-12 btn btn-primary text-white border-bottom border-light-dark rounded py-1 px-2 border-hover-primary">Size
                                                     Chart</a>
@@ -341,8 +343,10 @@
                     </p>
                 </div>
                 <div class="d-flex custom-arrow">
-                    <a href="#" class="arrow navId-1 slick-prev"><i class="far fa-arrow-left"></i></a>
-                    <a href="#" class="arrow navId-1 slick-next"><i class="far fa-arrow-right"></i></a>
+                    <a href="#" rel="nofollow" class="arrow navId-1 slick-prev"><i
+                            class="far fa-arrow-left"></i></a>
+                    <a href="#" rel="nofollow" class="arrow navId-1 slick-next"><i
+                            class="far fa-arrow-right"></i></a>
                 </div>
             </div>
             @if ($blogs)

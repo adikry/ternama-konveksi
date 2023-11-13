@@ -32,7 +32,8 @@
                                 <div class="card bg-transparent border-0 py-1">
                                     <a href="{{ $dataLanding->content[$i]['link'] }}" target="_blank">
                                         <img src="{{ asset('storage/' . $dataLanding->content[$i]['content']) }}"
-                                            alt="Konten Ternama Konveksi Landing Page {{ $i }}">
+                                            alt="Konten Ternama Konveksi Landing Page {{ $i }}"
+                                            class="w-100 h-100">
                                     </a>
                                 </div>
                             @endfor
