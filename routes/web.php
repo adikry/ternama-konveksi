@@ -1,10 +1,11 @@
 <?php
 
+use Spatie\Sitemap\SitemapGenerator;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ServiceController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PortofolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/sitemap', function () {
+    SitemapGenerator::create('http://127.0.0.1:8000/')->writeToFile('public/sitemap.xml');
+    return 'Success';
+});
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'home');
