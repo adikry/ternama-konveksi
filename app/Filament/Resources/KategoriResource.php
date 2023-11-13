@@ -51,15 +51,15 @@ class KategoriResource extends Resource
                 Forms\Components\FileUpload::make('display')
                     ->required()
                     ->image()
+                    ->resize(50)
                     ->optimize('webp')
-                    ->resize(75)
                     ->maxSize(1024)
                     ->directory('kategori-display'),
                 Forms\Components\FileUpload::make('sizeChart')
                     ->required()
                     ->image()
+                    ->resize(50)
                     ->optimize('webp')
-                    ->resize(75)
                     ->maxSize(1024)
                     ->directory('kategori-sizeChart'),
                 Forms\Components\TextInput::make('desc')

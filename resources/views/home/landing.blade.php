@@ -1,5 +1,22 @@
 @extends('layouts.frontend.second-page')
 
+
+@if (count($sliders))
+    @push('head')
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Ternama Konveksi" />
+        <meta property="og:title" content="Ternama Konveksi | Konveksi, Sablon, Design yang berkualitas" />
+        <meta property="og:description"
+            content="Ternama Konveksi dengan pengalaman lebih dari 10 tahun menjadikan kami sebagai vendor konveksi yang terlatih oleh waktu" />
+        <meta property="og:url" content="{{ url()->full() }}" />
+        <meta property="og:image" content="{{ asset('storage/' . $sliders[0]->thumbnail) }}">
+        <meta property="og:image:width" content="526">
+        <meta property="og:image:height" content="275">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta name="twitter:card" content="summary">
+    @endpush
+@endif
+
 @push('css')
     {{-- <link rel="stylesheet" href="/assets/css/landing.css"> --}}
 @endpush

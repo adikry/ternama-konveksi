@@ -19,6 +19,8 @@ class Portofolio extends Model
         'content' => 'array',
     ];
 
+    protected $with = ['user'];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');

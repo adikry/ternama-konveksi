@@ -76,12 +76,18 @@ class HomeController extends Controller
     public function landing(): View
     {
 
+        $sliders = Slider::query()
+            ->where('sort', '!=', null)
+            ->orderBy('sort', 'asc')
+            ->limit(1)
+            ->first();
+
         $dataLanding = LandingPage::query()
             ->where('isActive', '=', 1)
             ->limit(1)
             ->first();
 
-        return view('home.landing', compact('dataLanding'));
+        return view('home.landing', compact('dataLanding', 'sliders'));
     }
 
     public function links(): View

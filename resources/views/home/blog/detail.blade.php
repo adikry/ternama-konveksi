@@ -1,4 +1,19 @@
-@extends('layouts.frontend.main')
+@extends('layouts.frontend.main', [
+    'title' => 'Blog | Ternama Konveksi',
+])
+
+@push('head')
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Ternama Konveksi" />
+    <meta property="og:title" content="{{ $blog->judul }}" />
+    <meta property="og:description" content="{{ $blog->shortBody() }}" />
+    <meta property="og:url" content="{{ url()->full() }}" />
+    <meta property="og:image" content="{{ asset('storage/' . $blog->thumbnail) }}">
+    <meta property="og:image:width" content="526">
+    <meta property="og:image:height" content="275">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta name="twitter:card" content="summary">
+@endpush
 
 @section('container')
     @if ($blog)

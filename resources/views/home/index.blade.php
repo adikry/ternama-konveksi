@@ -1,5 +1,21 @@
-@extends('layouts.frontend.main')
-
+@extends('layouts.frontend.main', [
+    'title' => 'Ternama Konveksi | Konveksi, Sablon dan Design yang Berkualitas',
+])
+@if (count($sliders))
+    @push('head')
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Ternama Konveksi" />
+        <meta property="og:title" content="Ternama Konveksi | Konveksi, Sablon, Design yang berkualitas" />
+        <meta property="og:description"
+            content="Ternama Konveksi dengan pengalaman lebih dari 10 tahun menjadikan kami sebagai vendor konveksi yang terlatih oleh waktu" />
+        <meta property="og:url" content="{{ url()->full() }}" />
+        <meta property="og:image" content="{{ asset('storage/' . $sliders[0]->thumbnail) }}">
+        <meta property="og:image:width" content="526">
+        <meta property="og:image:height" content="275">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta name="twitter:card" content="summary">
+    @endpush
+@endif
 @push('css')
     <link rel="stylesheet" href="/assets/vendors/sweetalert2/sweetalert2.css">
 @endpush
@@ -40,7 +56,7 @@
     <section class="py-12 py-lg-15">
         <div class="container">
             <div class="mxw-110px mx-auto mb-8" data-animate="fadeInUp">
-                <img src="/assets/images/logo/logo_hitam.png" alt="Logo Ternama Konveksi" class="w-100" />
+                <img src="/assets/images/logo/logo_hitam.png" alt="Logo Ternama Konveksi" width="110" height="45" />
             </div>
             <div class="mxw-924 mx-auto" data-animate="fadeInUp">
                 <h2 class="fs-30 fs-md-40 lh-14 mb-5 text-center text-primary">

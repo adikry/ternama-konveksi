@@ -1,4 +1,22 @@
-@extends('layouts.frontend.main')
+@extends('layouts.frontend.main', [
+    'title' => 'Blog | Ternama Konveksi',
+])
+
+@if ($display)
+    @push('head')
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Ternama Konveksi" />
+        <meta property="og:title" content="Blog | Ternama Konveksi" />
+        <meta property="og:description"
+            content="Ternama Konveksi dengan pengalaman lebih dari 10 tahun menjadikan kami sebagai vendor konveksi yang terlatih oleh waktu" />
+        <meta property="og:url" content="{{ url()->full() }}" />
+        <meta property="og:image" content="{{ asset('storage/' . $display->thumbnail) }}">
+        <meta property="og:image:width" content="526">
+        <meta property="og:image:height" content="275">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta name="twitter:card" content="summary">
+    @endpush
+@endif
 
 @section('container')
     <!-- Banner Section -->
@@ -41,7 +59,8 @@
                                         </div>
                                         <div class="mt-auto px-5 d-flex">
                                             <div class="px-0 col-md-4">
-                                                <p class="mb-2 pt-5 lh-1 mr-5 text-white">Oleh : {{ $blog->user->name }}</p>
+                                                <p class="mb-2 pt-5 lh-1 mr-5 text-white">Oleh : {{ $blog->user->name }}
+                                                </p>
                                             </div>
                                             <div class="px-0 col-md-4">
                                                 <p class="mb-2 pt-5 lh-1 ml-5 text-white">{{ $blog->getFormattedDate() }}

@@ -7,7 +7,7 @@
     <meta name="description" content="Konveksi ternama di garut" />
 
 
-    <title>Ternama Konveksi</title>
+    <title>{{ $title }}</title>
 
 
     <!-- Favicon -->

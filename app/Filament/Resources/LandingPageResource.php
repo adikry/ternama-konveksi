@@ -39,8 +39,8 @@ class LandingPageResource extends Resource
                                 Forms\Components\FileUpload::make('content')
                                     ->image()
                                     ->maxSize(1024)
+                                    ->resize(40)
                                     ->optimize('webp')
-                                    ->resize(65)
                                     ->directory('content-landing'),
                                 Forms\Components\TextInput::make('link')
                                     ->required(),

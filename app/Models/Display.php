@@ -20,6 +20,8 @@ class Display extends Model
         'isActive' => 'boolean'
     ];
 
+    protected $with = ['user'];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');

@@ -65,8 +65,8 @@ class PortofolioResource extends Resource
                                 Forms\Components\FileUpload::make('thumbnail')
                                     ->required()
                                     ->image()
+                                    ->resize(30)
                                     ->optimize('webp')
-                                    ->resize(75)
                                     ->maxSize(1024)
                                     ->directory('head-porto'),
                                 Forms\Components\Select::make('kategori_id')
@@ -85,8 +85,8 @@ class PortofolioResource extends Resource
                                                 Forms\Components\FileUpload::make('content')
                                                     ->image()
                                                     ->maxSize(1024)
+                                                    ->resize(30)
                                                     ->optimize('webp')
-                                                    ->resize(40)
                                                     ->directory('content-porto'),
                                             ])
                                     ])

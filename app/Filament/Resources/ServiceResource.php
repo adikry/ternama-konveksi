@@ -63,8 +63,8 @@ class ServiceResource extends Resource
                                 Forms\Components\FileUpload::make('thumbnail')
                                     ->required()
                                     ->image()
+                                    ->resize(50)
                                     ->optimize('webp')
-                                    ->resize(75)
                                     ->maxSize(1024)
                                     ->directory('service-display'),
                                 Forms\Components\Textarea::make('description')
@@ -77,8 +77,8 @@ class ServiceResource extends Resource
                                         FileUpload::make('content_')
                                             ->image()
                                             ->maxSize(1028)
+                                            ->resize(50)
                                             ->optimize('webp')
-                                            ->resize(75)
                                             ->directory('services_content'),
                                         Textarea::make('content_desc')
                                             ->autosize()

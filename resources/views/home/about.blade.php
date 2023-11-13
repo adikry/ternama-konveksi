@@ -1,5 +1,21 @@
-@extends('layouts.frontend.main')
-
+@extends('layouts.frontend.main', [
+    'title' => 'About Us | Ternama Konveksi',
+])
+@if ($display)
+    @push('head')
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Ternama Konveksi" />
+        <meta property="og:title" content="About Us | Ternama Konveksi" />
+        <meta property="og:description"
+            content="Ternama Konveksi dengan pengalaman lebih dari 10 tahun menjadikan kami sebagai vendor konveksi yang terlatih oleh waktu" />
+        <meta property="og:url" content="{{ url()->full() }}" />
+        <meta property="og:image" content="{{ asset('storage/' . $display->thumbnail) }}">
+        <meta property="og:image:width" content="526">
+        <meta property="og:image:height" content="275">
+        <meta property="og:image:type" content="image/jpeg">
+        <meta name="twitter:card" content="summary">
+    @endpush
+@endif
 @section('container')
     <!-- Banner Section -->
     @if ($display)

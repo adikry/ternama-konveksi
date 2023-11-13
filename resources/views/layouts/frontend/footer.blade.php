@@ -4,8 +4,10 @@
         <div class="row">
             <div class="col-lg mb-6 mb-lg-0">
                 <div class="d-flex justify-content-center flex-wrap align-content-center flex-column">
-                    <a href="#" class="footer-logo d-block"><img src="/assets/images/logo/logo_putih.png"
-                            alt="Ternama Konveksi Logo" class="w-100" /></a>
+                    <a href="#" class="footer-logo d-block">
+                        <img src="/assets/images/logo/logo_putih.png" alt="Ternama Konveksi Logo" width="164"
+                            height="67" />
+                    </a>
                     <ul class="list-inline text-center border-top border-3x mt-2">
                         <li class="list-inline-item mr-4">
                             <a href="#" class="fs-24 text-white"><i class="fab fa-whatsapp"></i></a>
