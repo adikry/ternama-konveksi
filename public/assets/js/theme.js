@@ -677,7 +677,7 @@
     backToTop: function () {
       var $backToTop = $(".gtf-back-to-top");
       if ($backToTop.length > 0) {
-        $backToTop.on("click", function (event) {
+        $(".gtf-back-to-top:not(.wa)").on("click", function (event) {
           event.preventDefault();
           $("html,body").animate({ scrollTop: "0px" }, 800);
         });

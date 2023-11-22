@@ -117,12 +117,14 @@
                             class="pl-4 navbar-nav flex-row justify-content-xl-start d-flex flex-wrap text-body py-0 navbar-right">
                             <li class="border-4x border-left"></li>
                             <li class="nav-item p-2">
-                                <a href="#" class="nav-link py-1 px-2 rounded-lg position-relative">
+                                <a href="https://www.instagram.com/ternamakonveksi/" target="_blank"
+                                    class="nav-link py-1 px-2 rounded-lg position-relative">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                             <li class="nav-item p-2">
-                                <a href="#" class="nav-link py-1 px-2 rounded-lg position-relative">
+                                <a href="https://wa.me/+6281111120293?text=Haloadmin" target="_blank"
+                                    class="nav-link py-1 px-2 rounded-lg position-relative">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
                             </li>
